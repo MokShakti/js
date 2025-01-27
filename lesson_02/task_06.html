@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task 06</title>
+</head>
+
+<body>
+   <div class="wrapper-06">
+      <div class="wrapper-06__container">
+         <script>
+            //Дані
+            const firstUnitPrice = parseFloat(prompt(`Enter first unit price`))
+            const unitQuantity1 = parseFloat(prompt(`Enter first unit quantity`))
+
+            const secondUnitPrice = parseFloat(prompt(`Enter second unit price`))
+            const unitQuantity2 = parseFloat(prompt(`Enter second unit quantity`))
+
+            const thirdUnitPrice = parseFloat(prompt(`Enter third unit price`))
+            const unitQuantity3 = parseFloat(prompt(`Enter third unit quantity`))
+
+            //Обчислення
+            const firstUnitsValue = firstUnitPrice * unitQuantity1
+            const secondUnitsValue = secondUnitPrice * unitQuantity2
+            const thirdUnitsValue = thirdUnitPrice * unitQuantity3
+
+            const totalValue = firstUnitsValue + secondUnitsValue + thirdUnitsValue
+
+            //Результат
+
+            document.write(`
+               <div class="receipt">
+                  <h1>Receipt</h1><br>
+                  <ul class="receipt__items">
+                     <li class="receipt__unit">
+                        <h2>Unit #1</h2>
+                        ${unitQuantity1} x ${firstUnitPrice}zl = ${firstUnitsValue}zl
+                        </li><br>
+                     <li class="receipt__unit">
+                        <h2>Unit #2</h2>
+                        ${unitQuantity2} x ${secondUnitPrice}zl = ${secondUnitsValue}zl
+                        </li><br>
+                     <li class="receipt__unit">
+                        <h2>Unit #3</h2>
+                        ${unitQuantity3} x ${thirdUnitPrice}zl = ${thirdUnitsValue}zl
+                        </li><br>
+                     </ul><br>
+                     <div class="receipt__total">Total: ${totalValue}zl</div>
+               </div>`)
+         </script>
+      </div>
+   </div>
+   <script src="scripts/task_06.js"></script>
+</body>
