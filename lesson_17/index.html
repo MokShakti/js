@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Lesson 17</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <div class="wrapper__container">
+         <div class="wrapper__list tasks">
+            <div class="tasks__first">
+               <!-- <div class="tasks__header">
+                  <h2>1. Описати масив об’єктів – сайтів розроблених компанією з такими властивостями <br>
+                     ----- Властивості ------ <br>
+                     назва компанії на час розробки (назву періодично змінюють) <br>
+                     власник компанії <br>
+                     споснсори (масив спонсорів) <br>
+                     * прізвище спонсора <br>
+                     * ім’я спонсора <br>
+                     * сума вкладень спонсора <br>
+                     рік випуску <br>
+                     вартість сайту <br>
+                     Знайти:
+                  </h2>
+               </div> -->
+               <ol class="tasks__list">
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_01.html">
+                        <h3>Задача 01</h3>
+                        <div class="tasks__text">
+                           Створити клас, що дозволяє виконувати такі операції над масивами: знаходження кількості додатних, кількості від’ємних, кількість входжень деякого числа (статичні методи).
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_02.html">
+                        <h3>Задача 02</h3>
+                        <div class="tasks__text">
+                           Створити службове авто (водій, марка, номер). Створити клас таким чином, щоб можна було створити тільки один екземпляр цього класу.
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_03.html">
+                        <h3>Задача 03</h3>
+                        <div class="tasks__text">
+                           Створити клас Нагадувач. Кожні вказані кількості секунд (використати setInterval) програма нагадує про якусь подію (це просто текст) і також виводиться порядковий номер скільки раз вже нагадування було. Зробити так, щоб неможна було зробити одночасно декілька об’єктів-нагадувачів. Методи зупинки таймера, метод зміни повідомлення без зупинки таймера.
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_04.html">
+                        <h3>Задача 04</h3>
+                        <div class="tasks__text">
+                           Склад. База товарів, які зберігаються на складі: назва товару, одиниця виміру, кількість, фірма виробник (назва, реєстраційний номер). Організувати реєстрацію/відвантаження товарів, фільтрація за назвою товару, фільтрація за назвою фірми.
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_05.html">
+                        <h3>Задача 05</h3>
+                        <div class="tasks__text">
+                           Дано два класи MultChecker (клас для перевірки таблиці множення - рандомно генеруються числа, які треба перемножати), AddChecker (клас для перевірки додавання - рандомно генеруються числа у заданому діапазоні, які треба додавати). Обидва класи надсилають результати тестування об'єкту класу Hystory, який зберігає історію тестування у масиві у вигляді об'єктів. Приклад:
+                           testsList= [
+                           {firstNum:1, secondNum:5,opration:’*’, userAnswer:7, correctAnswer:5},
+   {firstNum:3, secondNum:4,opration:’+’, userAnswer:7, correctAnswer:7},
+]
+Можна створити окремий клас TestData, який описує один такий тест і у якому будуть ці поля. 
+Розробити клас TestManager, який використовуючи ці класи за допомогою таймера періодично генерує якісь N задач (рандомно вибираємо, що опитувати: додавання чи множення) і проводить опитування. Результати тестування додаються в об’єкт History.  Зробити так, щоб об'єкт такого класу можна було створити тільки один. Коли зроблено ці N задач вивести усю історію на екран.
+                        </div>
+                     </a>
+                  </li>
+               </ol>
+            </div>
+            <!-- <div class="tasks__second">
+               <div class="tasks__header">
+                  <h2>3. Ось приклад відповіді з одного з сайтів (масив об’єктів з інформацією про товари):</h2>
+                  <img src="img/2.1.png" alt="screenshot">
+               </div>
+               <ol class="tasks__list">
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_08.html">
+                        <h3>1.</h3>
+                        <div class="tasks__text">
+                           Загальну вартість (нові ціни - price).
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_09.html">
+                        <h3>2.</h3>
+                        <div class="tasks__text">
+                           Знайти кількість товарів, у яких ціна зменшилась (price < old_price).</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_10.html">
+                        <h3>3.</h3>
+                        <div class="tasks__text">
+                           Товари, які доступні (sell_status:"available").
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_11.html">
+                        <h3>4.</h3>
+                        <div class="tasks__text">
+                           Cформувати новий список об”єктів тільки доступних для продажу товарів, які міститимуть тільки ідентифікатор товару (id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price).
+                        </div>
+                     </a>
+                  </li>
+               </ol>
+            </div>
+            <div class="tasks__third">
+               <div class="tasks__header">
+                  <h2>2:</h2>
+               </div>
+               <ol class="tasks__list">
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_12.html">
+                        <h3>Задача 2</h3>
+                        <div class="tasks__text">
+                           Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+                        </div>
+                     </a>
+                  </li>
+               </ol>
+            </div> -->
+         </div>
+      </div>
+   </div>
+   <script src="js/script.js"></script>
+</body>
+
+</html>
