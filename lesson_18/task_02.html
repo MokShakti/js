@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task_02</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <main class="converter">
+         <div class="converter__container">
+            <h2 class="converter__title">Currency Converter</h2>
+            <form class="converter__form" onsubmit="convertCurrency(); return false;">
+               <label class="converter__field">
+                  <span class="converter__label">Amount</span>
+                  <input class="converter__input" type="number" id="amount" name="amount" placeholder="Enter amount" required>
+               </label>
+               <label class="converter__field">
+                  <span class="converter__label">From</span>
+                  <select class="converter__select" id="from" name="from">
+                     <option value="USD">USD</option>
+                     <option value="EUR">EUR</option>
+                     <option value="UAH">UAH</option>
+                  </select>
+               </label>
+               <label class="converter__field">
+                  <span class="converter__label">To</span>
+                  <select class="converter__select" id="to" name="to">
+                     <option value="USD">USD</option>
+                     <option value="EUR">EUR</option>
+                     <option value="UAH">UAH</option>
+                  </select>
+               </label>
+               <button class="converter__button" type="submit">
+                  Convert
+               </button>
+            </form>
+            <div class="converter__result" id="result">—</div>
+         </div>
+      </main>
+   </div>
+   <script src="scripts/task_02.js"></script>
+</body>
