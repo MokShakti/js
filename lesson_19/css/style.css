@@ -1,0 +1,354 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates:regular,500,600,700,800&display=swap");
+/* null */
+:root {
+   --colorTitle: #fff;
+   --bg: #141414;
+   --bg-02: #000;
+   --menuBorder: #1f1f1f;
+   --menuBg: #0f0f0f;
+   --colorButton: #e50000;
+   --mainText: #999;
+   --secondaryText: #bfbfbf;
+   --heroBorder: #262626;
+   --scrollerColor: #333;
+   --cardsBorder: #1a1a1a;
+   --btnColor: #0b63f6;
+   --btnColor-02: #003cc5;
+   --font-family: "Manrope", sans-serif;
+   --red-50: #f00;
+   --red-55: #ff1a1a;
+   --red-60: #f33;
+   --red-80: #f99;
+   --red-90: #fcc;
+   --red-95: #ffe5e5;
+   --red-99: #fffafa;
+   --black-25: #404040;
+   --black-30: #4d4d4d;
+   --grey-65: #a6a6a6;
+   --grey-70: #b3b3b3;
+   --grey-90: #e4e4e7;
+   --grey-95: #f1f1f3;
+   --grey-97: #f7f7f8;
+   --grey-99: #fcfcfd;
+}
+
+/*Null*/
+*,
+*::before,
+*::after {
+   padding: 0;
+   margin: 0;
+   border: none;
+   box-sizing: border-box;
+}
+
+*::before,
+*::after {
+   display: inline-block;
+}
+
+a {
+   text-decoration: none;
+   display: inline-block;
+   color: inherit;
+}
+
+li {
+   list-style: none;
+}
+
+img {
+   vertical-align: top;
+}
+
+html,
+body {
+   line-height: 1;
+   height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: inherit;
+   font-size: inherit;
+}
+
+/* FORM */
+input,
+button,
+textarea {
+   font-family: inherit;
+   font-size: inherit;
+   line-height: inherit;
+   color: inherit;
+   background-color: transparent;
+}
+
+input,
+textarea {
+   width: 100%;
+}
+
+button,
+select,
+option {
+   cursor: pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+   -webkit-appearance: none;
+   appearance: none;
+}
+
+body {
+   font-family: "Montserrat Alternates", sans-serif;
+   background: url(../img/bg.avif) center/cover fixed no-repeat;
+   color: var(--grey-99);
+}
+
+.wrapper {
+   min-height: 100%;
+   overflow: clip;
+   display: flex;
+   flex-direction: column;
+}
+
+.wrapper > main {
+   flex-grow: 1;
+}
+
+[class*="__container"] {
+   max-width: 76.875rem;
+   padding-inline: 0.9375rem;
+   margin-inline: auto;
+}
+
+.page {
+   width: 100%;
+}
+
+/* -------------HEADER-------------- */
+.wrapper__container {
+   padding-block: 3.125rem;
+}
+
+.tasks {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 1.875rem;
+}
+.tasks__first,
+.tasks__second,
+.tasks__third {
+   background-color: rgba(51, 51, 51, 0.6);
+   padding: 0.625rem;
+   border-radius: 0.5rem;
+}
+.tasks__a {
+   -webkit-padding-after: 0.3125rem;
+   padding-block-end: 0.3125rem;
+   position: relative;
+   transition: 0.8s;
+}
+.tasks__a::after {
+   position: absolute;
+   content: "";
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 0.0625rem;
+   background-color: var(--colorButton);
+   width: 0;
+   transition: 0.8s;
+}
+.tasks__a:hover::after {
+   width: 100%;
+}
+.tasks__header {
+   -webkit-margin-after: 0.625rem;
+   margin-block-end: 0.625rem;
+   font-size: 1.25rem;
+}
+.tasks__header h2 {
+   color: var(--red-80);
+   font-weight: 800;
+}
+.tasks__header img {
+   width: 100%;
+   height: auto;
+}
+.tasks__link {
+   -webkit-margin-after: 0.9375rem;
+   margin-block-end: 0.9375rem;
+}
+.tasks__link h3 {
+   color: var(--colorTitle);
+   font-weight: 700;
+   font-size: 1.25rem;
+   -webkit-margin-after: 0.625rem;
+   margin-block-end: 0.625rem;
+}
+
+.tasks__list > .tasks__link:nth-child(-n + 4) .tasks__a h3,
+.tasks__list > .tasks__link:nth-child(7) .tasks__a h3 {
+   color: #003cc5;
+}
+
+.tasks__text {
+   color: var(--colorTitle);
+}
+
+/* HELLO */
+
+.hello {
+   cursor: pointer;
+   margin: 4px 0;
+}
+
+/* LISTS */
+.btn {
+   padding: 0.5em 1em;
+   margin-right: 0.5em;
+   font-size: 1rem;
+   cursor: pointer;
+   border: none;
+   border-radius: 0.25em;
+   color: #fff;
+}
+.btn--gen {
+   background: #007bff;
+}
+.btn--color {
+   background: #28a745;
+}
+#listsContainer {
+   margin-top: 1em;
+   display: flex;
+   gap: 1em;
+}
+ol {
+   padding-left: 1.2em;
+   background: #f0f0f0;
+   border-radius: 0.3em;
+   width: 120px;
+   color: #000;
+}
+
+.list-colored-even {
+   background: lightgreen;
+}
+.list-colored-odd {
+   background: lightcoral;
+}
+
+/* TABLES */
+
+.table-container {
+   display: inline-block;
+   margin: 1em;
+   vertical-align: top;
+   text-align: center;
+}
+table {
+   border-collapse: collapse;
+   margin-top: 0.5em;
+}
+td {
+   width: 2em;
+   height: 2em;
+   text-align: center;
+   border: 1px solid #666;
+   cursor: pointer;
+}
+
+.selected {
+   border: 3px solid red !important;
+}
+
+/* PRODUCTS */
+.products {
+   display: flex;
+   gap: 1rem;
+   flex-wrap: wrap;
+}
+.product-card {
+   width: 160px;
+   padding: 0.5rem;
+   border: 2px solid transparent;
+   border-radius: 4px;
+   text-align: center;
+   cursor: pointer;
+   transition: border-color 0.2s;
+}
+.product-card img {
+   width: 100%;
+   height: auto;
+   display: block;
+   margin-bottom: 0.5rem;
+}
+.product-card .label {
+   font-size: 0.75rem;
+   background: orange;
+   color: #fff;
+   padding: 0.2em 0.4em;
+   border-radius: 2px;
+   display: inline-block;
+   margin-bottom: 0.5rem;
+}
+.product-card .title {
+   font-size: 0.9rem;
+   margin-bottom: 0.25rem;
+}
+.product-card .price {
+   font-weight: bold;
+   color: #d32f2f;
+}
+
+.product-card.odd {
+   border: 2px solid red;
+}
+
+.products .product-card.selected {
+   border: 2px solid limegreen !important;
+}
+
+/* COMPETITION */
+
+#generalList li,
+#chosenList li {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0.25em 0.5em;
+   margin-bottom: 0.5em;
+   border: 1px solid #999;
+   border-radius: 4px;
+   background: #fff;
+   list-style: none;
+}
+
+#generalList li .btn[data-action="select"] {
+   color: green;
+   font-size: 1.2rem;
+}
+
+#chosenList li .btn[data-action="deselect"] {
+   color: red;
+   font-size: 1.2rem;
+}
+
+#generalList li .btn[data-action="select"]:hover {
+   cursor: pointer;
+}
+
+#chosenList li .btn[data-action="deselect"]:hover {
+   cursor: pointer;
+}
