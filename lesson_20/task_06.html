@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+   <style>
+      body {
+         font-family: sans-serif;
+         padding: 20px;
+      }
+
+      #search {
+         padding: 8px;
+         width: 300px;
+         font-size: 14px;
+         margin-bottom: 12px;
+      }
+
+      ul {
+         list-style: none;
+         padding: 0;
+         max-width: 300px;
+      }
+
+      li {
+         padding: 6px 10px;
+         border-bottom: 1px solid #ddd;
+      }
+
+      .hidden {
+         display: none;
+      }
+   </style>
+</head>
+
+<body>
+   <input type="text" id="search" placeholder="Search for employee">
+
+   <ul id="employeeList">
+      <li>John Smith</li>
+      <li>Mary Johnson</li>
+      <li>Michael Williams</li>
+      <li>Patricia Brown</li>
+      <li>Robert Jones</li>
+      <li>Linda Davis</li>
+      <li>William Miller</li>
+   </ul>
+
+   <script>
+      //Умова: Динамічний пошук. Є список працівників і поле пошуку. При введенні відображаються усі, які містять вказаний фрагмент.
+
+      const input = document.getElementById('search')
+      const list = document.getElementById('employeeList')
+      const items = Array.from(list.querySelectorAll('li'))
+
+      input.addEventListener('input', function () {
+         const query = this.value.trim().toLowerCase()
+
+         items.forEach(li => {
+            const text = li.textContent.toLowerCase()
+            if (text.includes(query)) {
+               li.classList.remove('hidden')
+            } else {
+               li.classList.add('hidden')
+            }
+         })
+      })
+   </script>
+</body>
+
+</html>

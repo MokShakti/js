@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task 05</title>
+
+   <style>
+      ul {
+         list-style: none;
+         padding: 0;
+         width: 200px;
+      }
+
+      li {
+         padding: 8px 12px;
+         margin-bottom: 4px;
+         border: 1px solid transparent;
+         cursor: pointer;
+         user-select: none;
+      }
+
+      li.selected {
+         border-color: #007BFF;
+         background-color: rgba(0, 123, 255, 0.1);
+      }
+   </style>
+</head>
+
+<body>
+   <ul id="myList">
+      <li>Пункт 1</li>
+      <li>Пункт 2</li>
+      <li>Пункт 3</li>
+      <li>Пункт 4</li>
+      <li>Пункт 5</li>
+   </ul>
+
+   <script>
+      //Умова: Список, у якому можна вибирати елементи (вибраний елемент підсвічується рамкою).
+
+      const list = document.getElementById('myList')
+
+      list.addEventListener('click', function (e) {
+         const item = e.target
+         if (item.tagName === 'LI') {
+            Array.from(list.children).forEach(li => {
+               li.classList.remove('selected')
+            })
+            item.classList.add('selected')
+         }
+      })
+   </script>
+</body>

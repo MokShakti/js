@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+   <style>
+      body {
+         font-family: sans-serif;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         padding: 20px;
+         gap: 10px;
+      }
+
+      .card {
+         width: 120px;
+         height: 60px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border: 2px solid transparent;
+         border-radius: 6px;
+         background: #f0f0f0;
+         cursor: pointer;
+         user-select: none;
+         transition: border-color 0.2s;
+      }
+
+      .card.selected {
+         border-color: #007bff;
+      }
+
+      .card.mismatch {
+         border-color: #dc3545;
+      }
+
+      .card.matched {
+         visibility: hidden;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="card" data-key="apple" data-lang="en">apple</div>
+   <div class="card" data-key="dog" data-lang="en">dog</div>
+   <div class="card" data-key="cat" data-lang="en">cat</div>
+   <div class="card" data-key="dog" data-lang="ua">собака</div>
+   <div class="card" data-key="cat" data-lang="ua">кіт</div>
+   <div class="card" data-key="apple" data-lang="ua">яблуко</div>
+   <script>
+      //Умова: Перекладач. Користувачу виводять змішані картки з словами на англійській і українській мові. Користувач поступово клікає на картки (виділяємо синьою рамкою). Якщо знайдено правильні пари карток, що відповідають одному слову, то видаляємо ці картки. Інакше - виділяємо червоною рамкою і через секунду забираємо рамку.
+
+      const cards = document.querySelectorAll('.card')
+      let first = null
+      let second = null
+      let lock = false
+
+      function resetSelection() {
+         first = null
+         second = null
+         lock = false
+      }
+
+      document.body.addEventListener('click', e => {
+         const c = e.target
+         if (!c.classList.contains('card') || lock || c.classList.contains('selected')) {
+            return
+         }
+
+         c.classList.add('selected')
+
+         if (!first) {
+            first = c
+            return
+         }
+         second = c
+         lock = true
+
+         const isMatch =
+            first.dataset.key === second.dataset.key &&
+            first.dataset.lang !== second.dataset.lang
+
+         if (isMatch) {
+            first.classList.add('matched')
+            second.classList.add('matched')
+            resetSelection()
+         } else {
+            first.classList.add('mismatch')
+            second.classList.add('mismatch')
+            setTimeout(() => {
+               first.classList.remove('selected', 'mismatch')
+               second.classList.remove('selected', 'mismatch')
+               resetSelection()
+            }, 1000)
+         }
+      })
+   </script>
+</body>
+
+</html>

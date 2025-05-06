@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task_02</title>
+   <style>
+      body {
+         margin: 0;
+         padding: 0;
+         overflow: hidden;
+         background: #000;
+         position: relative;
+         height: 100vh;
+      }
+
+      .tank {
+         position: absolute;
+         width: 60px;
+         height: 60px;
+         user-select: none;
+         cursor: pointer;
+      }
+   </style>
+</head>
+
+<body>
+   <script>
+      //Умова: Байрактар. З верхньої частини екрану у випадковій позиції по горизонталі з’являються танки, які їдуть вниз. При кліку на танк він вибухає і зникає з екрану. -->
+
+      class Tank {
+         constructor(imagesObj, step, speed, cssObj) {
+            this.imagesObj = imagesObj
+            this.step = step
+            this.speed = speed
+            this.cssObj = cssObj
+         }
+
+         getRandomValue(min, max) {
+            return min + Math.random() * (max - min)
+         }
+
+         setInitPosition() {
+            this.left = this.getRandomValue(0, 100)
+            this.top = -10
+         }
+
+         setPosition() {
+            this.el.style.left = this.left + '%'
+            this.el.style.top = this.top + '%'
+         }
+
+         updateCoordinates() {
+            this.top += this.step
+            this.setPosition()
+
+            if (this.top > 100) {
+               clearInterval(this.timerId)
+               this.el.remove()
+            }
+         }
+
+         explode() {
+            clearInterval(this.timerId)
+            this.el.src = this.imagesObj.explode
+            setTimeout(() => {
+               this.el.remove()
+            }, 500)
+         }
+
+         render(containerSelector) {
+            this.el = document.createElement('img')
+            this.el.src = this.imagesObj.alive
+            this.el.className = this.cssObj.containerClass
+
+            this.el.addEventListener('click', () => this.explode())
+
+            this.setInitPosition()
+            this.setPosition()
+
+            const container = document.querySelector(containerSelector) || document.body
+            container.append(this.el)
+
+            this.timerId = setInterval(() => this.updateCoordinates(), this.speed)
+         }
+      }
+
+      const imagesObj = {
+         alive: './img/tank.png',
+         explode: './img/dead_tank.png'
+      }
+
+      function spawnTanks(count) {
+         for (let i = 0; i < count; i++) {
+            new Tank(imagesObj, 0.6, 30, { containerClass: 'tank' })
+               .render('body')
+         }
+      }
+
+      window.onload = () => {
+         spawnTanks(8)
+         setInterval(() => spawnTanks(1), 2000)
+      }
+   </script>
+</body>

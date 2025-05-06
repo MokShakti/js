@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task_03</title>
+</head>
+
+<body>
+   <form id="personForm">
+      <label>Age: <input type="number" name="age" placeholder="Age"></label><br>
+      <label>Height: <input type="number" name="height" placeholder="Height"></label><br>
+      <label>Weight: <input type="number" name="weight" placeholder="Weight"></label><br>
+      <label>Salary: <input type="number" name="salary" placeholder="Salary"></label><br>
+      <label>Work experience: <input type="number" name="exp" placeholder="Work experience"></label><br>
+      <label>Department Number: <input type="number" name="dept" placeholder="Department Number"></label><br>
+      <label>Serial Number: <input type="number" name="serial" placeholder="Serial Number №"></label><br>
+   </form>
+
+   <script>
+
+      //Умова: На формі вводять 7 числових значень (вік, зріст, вага, заробітна плата, стаж, номер відділу, порядковий номер). Додати подію обробки події click на форму і якщо клік на внутрішньому input, то автоматично замінювати значення його на 0. Використати делегування.
+
+      const form = document.getElementById('personForm')
+
+      form.addEventListener('click', function (event) {
+         const tgt = event.target
+         if (tgt.tagName === 'INPUT' && tgt.type === 'number') {
+            tgt.value = 0
+         }
+      })
+   </script>
+</body>

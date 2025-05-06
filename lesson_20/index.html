@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Lesson 20</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <div class="wrapper__container">
+         <div class="wrapper__list tasks">
+            <div class="tasks__first">
+               <!-- <div class="tasks__header">
+                  <h2>1. Описати масив об’єктів – сайтів розроблених компанією з такими властивостями <br>
+                     ----- Властивості ------ <br>
+                     назва компанії на час розробки (назву періодично змінюють) <br>
+                     власник компанії <br>
+                     споснсори (масив спонсорів) <br>
+                     * прізвище спонсора <br>
+                     * ім’я спонсора <br>
+                     * сума вкладень спонсора <br>
+                     рік випуску <br>
+                     вартість сайту <br>
+                     Знайти:
+                  </h2>
+               </div> -->
+               <ol class="tasks__list">
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_01.html">
+                        <h3>Задача 01</h3>
+                        <div class="tasks__text">
+                           Сяючі зорі. Вказана кількість зірочок повинна з’являтися у випадковій частині екрану. Кожна зірка (це екземпляр класу Star) з певним кроком і інтервалом збільшується від мінімального до максимального розміру. Як тільки досягнути максимального розміру зірочка повинна з’являтися у іншій випадковій позиції.
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_02.html">
+                        <h3>Задача 02</h3>
+                        <div class="tasks__text">
+                           Байрактар. З верхньої частини екрану у випадковій позиції по горизонталі з’являються танки, які їдуть вниз. При кліку на танк він вибухає і зникає з екрану.
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_03.html">
+                        <h3>Задача 03</h3>
+                        <div class="tasks__text">
+                           На формі вводять 7 числових значень (вік, зріст, вага, заробітна плата, стаж, номер відділу, порядковий номер). Додати подію обробки події click на форму і якщо клік на внутрішньому input, то автоматично замінювати значення його на 0. Використати делегування.
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_04.html">
+                        <h3>Задача 04</h3>
+                        <div class="tasks__text">
+                           На сторінці міститься певна кількість кнопок і інпутів. Підраховувати загальну кількість кліків окремо на кнопках і окремо на інпутах.
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_05.html">
+                        <h3>Задача 05</h3>
+                        <div class="tasks__text">
+                           Список, у якому можна вибирати елементи (вибраний елемент підсвічується рамкою).
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_06.html">
+                        <h3>Задача 06</h3>
+                        <div class="tasks__text">
+                           Динамічний пошук. Є список працівників і поле пошуку. При введенні відображаються усі, які містять вказаний фрагмент.
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_07.html">
+                        <h3>Задача 07</h3>
+                        <div class="tasks__text">
+                           Перекладач. Користувачу виводять змішані картки з словами на англійській і українській мові. Користувач поступово клікає на картки (виділяємо синьою рамкою). Якщо знайдено правильні пари карток, що відповідають одному слову, то видаляємо ці картки. Інакше - виділяємо червоною рамкою і через секунду забираємо рамку.
+                        </div>
+                     </a>
+                  </li>
+               </ol>
+            </div>
+            <!-- <div class="tasks__second">
+               <div class="tasks__header">
+                  <h2>3. Ось приклад відповіді з одного з сайтів (масив об’єктів з інформацією про товари):</h2>
+                  <img src="img/2.1.png" alt="screenshot">
+               </div>
+               <ol class="tasks__list">
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_08.html">
+                        <h3>1.</h3>
+                        <div class="tasks__text">
+                           Загальну вартість (нові ціни - price).
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_09.html">
+                        <h3>2.</h3>
+                        <div class="tasks__text">
+                           Знайти кількість товарів, у яких ціна зменшилась (price < old_price).</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_10.html">
+                        <h3>3.</h3>
+                        <div class="tasks__text">
+                           Товари, які доступні (sell_status:"available").
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_11.html">
+                        <h3>4.</h3>
+                        <div class="tasks__text">
+                           Cформувати новий список об”єктів тільки доступних для продажу товарів, які міститимуть тільки ідентифікатор товару (id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price).
+                        </div>
+                     </a>
+                  </li>
+               </ol>
+            </div>
+            <div class="tasks__third">
+               <div class="tasks__header">
+                  <h2>2:</h2>
+               </div>
+               <ol class="tasks__list">
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_12.html">
+                        <h3>Задача 2</h3>
+                        <div class="tasks__text">
+                           Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+                        </div>
+                     </a>
+                  </li>
+               </ol>
+            </div> -->
+         </div>
+      </div>
+   </div>
+   <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task_01</title>
+   <style>
+      body {
+         margin: 0;
+         padding: 0;
+         overflow: hidden;
+         position: relative;
+         height: 100vh;
+         background: #000;
+      }
+
+      .star {
+         position: absolute;
+         width: 2px;
+         height: 2px;
+         border-radius: 50%;
+
+         background: radial-gradient(circle at center,
+               rgba(255, 255, 255, 1) 0%,
+               rgba(255, 255, 255, 0.4) 30%,
+               rgba(255, 255, 255, 0) 60%);
+
+         box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+         pointer-events: none;
+      }
+   </style>
+</head>
+
+<body>
+   <script>
+      //Умова: Сяючі зорі. Вказана кількість зірочок повинна з’являтися у випадковій частині екрану. Кожна зірка (це екземпляр класу Star) з певним кроком і інтервалом збільшується від мінімального до максимального розміру. Як тільки досягнути максимального розміру зірочка повинна з’являтися у іншій випадковій позиції.
+
+      class Star {
+         constructor({ minSize, maxSize, sizeStep, interval, containerSelector }) {
+            this.minSize = minSize
+            this.maxSize = maxSize
+            this.sizeStep = sizeStep
+            this.intervalTime = interval
+            this.container = document.querySelector(this.containerSelector) || document.body
+         }
+
+         getRandomValue(min, max) {
+            return min + Math.random() * (max - min)
+         }
+
+         setInitPosition() {
+            this.left = this.getRandomValue(0, window.innerWidth)
+            this.top = this.getRandomValue(0, window.innerHeight)
+         }
+
+         setInitSize() {
+            this.size = this.minSize
+         }
+
+         updateSize() {
+            this.size += this.sizeStep
+            if (this.size >= this.maxSize) {
+               this.reset()
+            }
+            this.el.style.width = this.size + `px`
+            this.el.style.height = this.size + `px`
+
+            const flicker = 0.5 + Math.random() * 0.5;
+            this.el.style.opacity = flicker;
+         }
+
+         reset() {
+            this.setInitPosition()
+            this.setInitSize()
+
+            this.el.style.left = this.left + `px`
+            this.el.style.top = this.top + `px`
+            this.el.style.width = this.size + `px`
+            this.el.style.height = this.size + `px`
+         }
+
+         render() {
+            this.el = document.createElement('div')
+            this.el.className = `star`
+
+            this.setInitPosition()
+            this.setInitSize()
+
+            this.el.style.left = this.left + `px`
+            this.el.style.top = this.top + `px`
+            this.el.style.width = this.size + `px`
+            this.el.style.height = this.size + `px`
+
+            this.container.append(this.el)
+
+            setInterval(() => this.updateSize(), this.intervalTime)
+         }
+      }
+
+      function initStars(count) {
+         const config = {
+            minSize: 2,
+            maxSize: 20,
+            sizeStep: 0.3,
+            interval: 50,
+            containerSelector: `body`
+         }
+         for (let i = 0; i < count; i++) {
+            new Star(config).render();
+         }
+      }
+
+      window.onload = () => {
+         initStars(30)
+      }
+   </script>
+</body>
