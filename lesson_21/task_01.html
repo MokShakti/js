@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task_01</title>
+   <style>
+   </style>
+</head>
+
+<body>
+   <script>
+      //Умова:                            Створити клас Client. Властивості: ID; ПІБ; Кількість грошей на рахунку. Методи: Додавання грошей; Зняття грошей; ToString. На основі цього класу створити клас GoldenClient. Властивості: ID; ПІБ; Кількість грошей на рахунку; Ліміт кредитних коштів; Відсоток за використання кредитних коштів. Методи: Додавання грошей; Зняття грошей; Визначення пені за використання кредитних коштів; ToString.
+
+      class Client {
+         constructor(id, snm, balance) {
+            this.id = id
+            this.snm = snm
+            this.balance = balance
+         }
+
+         deposit(amount) {
+            if (amount < 0) {
+               console.log(`Amount should be greater than 0`)
+               return
+            }
+            this.balance += amount
+            console.log(`You added ${amount}. New balance is ${this.balance}.`)
+         }
+
+         withdraw(amount) {
+            if (amount <= 0) {
+               console.log(`You cannot withdraw amount that is less than 0`)
+               return
+            }
+            if (amount > this.balance) {
+               console.log(`Not enough amount to withdraw`)
+            }
+            this.balance -= amount
+            console.log(`You have withdrawn ${amount}. New balance is: ${this.balance}.`);
+         }
+         toString() {
+            return `Client ID: ${this.id}, Full name: ${this.snm}, Balance: ${this.balance}`
+         }
+      }
+
+      class GoldenClient extends Client {
+         constructor(id, snm, balance, creditLimit, creditInterestPercent) {
+            super(id, snm, balance)
+            this.creditLimit = creditLimit
+            this.creditInterestPercent = creditInterestPercent
+         }
+
+         withdraw(amount) {
+            if (amount <= 0) {
+               console.log(`Amount cannot be greater than 0.`)
+               return
+            }
+            if (this.balance - amount < -this.creditLimit) {
+               console.log(`Credit limit exceeded ${this.creditLimit}`)
+               return
+            }
+            this.balance -= amount
+            console.log(`You have withdrawn ${amount}. New balance is: ${this.balance}`)
+         }
+
+         calculatePenalty() {
+            if (this.balance >= 0) {
+               return 0
+            }
+            const debt = -this.balance
+            return debt * (this.creditInterestPercent / 100)
+         }
+
+         toString() {
+            return super.toString() + `, Credit limit: ${this.creditLimit}, Credit percent: ${this.creditInterestPercent}%`
+         }
+      }
+
+      const client = new Client(7, 'Dean John Winchester', 4000);
+      console.log(client.toString())
+      client.deposit(500)
+      client.withdraw(200)
+      client.withdraw(5000)
+
+      const goldenClient = new GoldenClient(8, 'Mary Winchester', 2000, 1000, 12)
+      console.log(goldenClient.toString())
+      goldenClient.withdraw(2500)
+      console.log('Loan penalty:', goldenClient.calculatePenalty())
+      goldenClient.withdraw(600)
+   </script>
+</body>

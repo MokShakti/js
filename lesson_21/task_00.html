@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task_00</title>
+   <style>
+   </style>
+</head>
+
+<body>
+   <script>
+      // Умова: Розробити клас Person (поля:ім'я, вік, адреса; методи: toString, визначення року народження). На основі класу Person розробити клас Worker (додати поля: посада, розмір заробітної плати, кількість відсотів оподаткування; методи:визначення кількості виплачених коштів за рік, та визначення розміру податків).
+
+      class Person {
+         constructor(name, age, address) {
+            this.name = name
+            this.age = age
+            this.address = address
+         }
+
+         toString() {
+            return `Name: ${this.name}, Age: ${this.age}, Address: ${this.address}`
+         }
+
+         getBirthYear() {
+            const currentYear = new Date().getFullYear()
+            return currentYear - this.age
+         }
+      }
+
+      class Employee extends Person {
+         constructor(name, age, address, position, salary, taxPercent) {
+            super(name, age, address)
+            this.position = position
+            this.salary = salary
+            this.taxPercent = taxPercent
+         }
+
+         getAnnualIncome() {
+            return this.salary * 12
+         }
+
+         getAnnualTax() {
+            return this.getAnnualIncome() * (this.taxPercent / 100)
+         }
+
+         toString() {
+            return `Name: ${this.name}, Age: ${this.age}, Address: ${this.address},` + `Position: ${this.position}, Salary: ${this.salary} zl/mo, Tax: ${this.taxPercent}%`
+         }
+      }
+
+      const person = new Person(`Mary`, 29, `Lawrence, Kansas, 53 Barker Avenue`)
+      console.log(person.toString())
+      console.log(`Date of birth:`, person.getBirthYear())
+
+      const employee = new Employee(`Dean`, 46, `Lawrence, Kansas, 53 Barker Avenue`, `Hunter`, 8000, 31)
+      console.log(employee.toString)
+      console.log(`Annual income:`, employee.getAnnualIncome())
+      console.log(`Annual tax:`, employee.getAnnualTax())
+   </script>
+</body>

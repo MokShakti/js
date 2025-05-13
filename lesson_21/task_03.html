@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task 04</title>
+   <style>
+   </style>
+</head>
+
+<body>
+
+   <script>
+      //Умова: Розробити Класи: 
+      // 1. House:
+      // Властивості:
+      // - координата Х;
+      // - Координата У;
+      // - шлях до зображення;
+      // - інтервал оновлення.
+      // Методи:
+      // - генерування елемента розмітки;
+      // - оновлення через вказаний інтервал (збільшення або зменшення масштабу (об’єкт не рухається).
+
+      // 2. Dog:
+      // Властивості:
+      // - координата Х;
+      // - Координата У;
+      // - шлях до зображення;
+      // - інтервал оновлення.
+      // Методи:
+      // - генерування елемента розмітки;
+      // - оновлення через вказаний інтервал (випадкове зміщення по горизонталі (зміна координати Х)).
+
+      // 3. Bird:
+      // Властивості:
+      // - координата Х;
+      // - Координата У;
+      // - шлях до зображення;
+      // - інтервал оновлення.
+      // Методи:
+      // - генерування елемента розмітки;
+      // - оновлення через вказаний інтервал (випадкове переміщення у довільному напрямку).
+
+      // Подумайте яким має бути спільний клас предок.
+
+      //------------------- 1.
+
+      class MoveObject {
+         constructor(x, y, imagePath, interval) {
+            this.x = x
+            this.y = y
+            this.imagePath = imagePath
+            this.interval = interval
+            this.img = null
+            this.timer = null
+            this.scale = 1
+         }
+
+         generateElement() {
+            const img = document.createElement(`img`)
+            img.src = this.imagePath
+            img.style.position = `absolute`
+            img.style.width = `200px`
+            img.style.left = `${this.x}px`
+            img.style.top = `${this.y}px`
+            img.style.transform = `scale(${this.scale})`
+
+            this.img = img
+            return img
+         }
+
+         start() {
+            if (!this.img) {
+               console.error(`generateElement() needs to be called first`);
+               return
+            }
+            if (this.timer) return
+            this.timer = setInterval(() => this.update(), this.interval);
+         }
+
+         stop() {
+            clearInterval(this.timer)
+            this.timer = null
+         }
+
+         update() {
+         }
+      }
+
+      class House extends MoveObject {
+         update() {
+            this.scale = this.scale === 1 ? 1.2 : 1
+            this.img.style.transform = `scale(${this.scale})`
+         }
+      }
+
+      class Dog extends MoveObject {
+         update() {
+            const dx = Math.random() * 20 - 10
+            this.x += dx
+            this.img.style.left = `${this.x}px`
+         }
+      }
+
+      class Bird extends MoveObject {
+         update() {
+            const dx = Math.random() * 20 - 10
+            const dy = Math.random() * 20 - 10
+            this.x += dx
+            this.y += dy
+            this.img.style.left = `${this.x}px`
+            this.img.style.top = `${this.y}px`
+         }
+      }
+
+      const house = new House(50, 50, `./img/ua-house.jpg`, 2000)
+      document.body.append(house.generateElement())
+      house.start()
+
+      const dog = new Dog(300, 200, `./img/holland-herder.jpg`, 2000)
+      document.body.append(dog.generateElement())
+      dog.start()
+
+      const bird = new Bird(650, 100, `./img/bird.webp`, 2000)
+      document.body.append(bird.generateElement())
+      bird.start()
+
+   </script>
+</body>

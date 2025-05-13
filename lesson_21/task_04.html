@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task 04</title>
+
+   <style>
+   </style>
+</head>
+
+<body>
+   <script>
+      //Умова: Користувач задає місяць навчання учня (перевіряти чи є числом, чи від 1 до 12, чи не канікули) та оцінку (перевіряти чи є числом, чи від 1 до 100). Вивести чи зможе він виправити оцінку (якщо оцінка погана і це не останній місяць у семестрі) . Обробку усіх помилок зробити з використанням відповідних класів.
+
+      class Error {
+         constructor(message) {
+            this.name = `Error`;
+            this.message = message;
+         }
+      }
+
+      class InputError extends Error {
+         constructor(message) {
+            super(message)
+            this.name = this.constructor.name
+         }
+      }
+      class MonthError extends InputError { }
+      class ScoreError extends InputError { }
+
+      function main() {
+         try {
+            const monthInput = prompt(`Enter month (1–12, except holidays 1,7,8):`)
+            if (monthInput === null || monthInput.trim() === ``) {
+               alert(`No month entered`)
+               return
+            }
+            const month = Number(monthInput)
+            if (isNaN(month) || month < 1 || month > 12 || [1, 7, 8].includes(month)) {
+               throw new MonthError(`Incorrect month: ` + monthInput)
+            }
+
+            const scoreInput = prompt(`Enter score (1–100):`)
+            if (scoreInput === null || scoreInput.trim() === ``) {
+               alert(`No score entered`)
+               return
+            }
+            const score = Number(scoreInput)
+            if (isNaN(score) || score < 1 || score > 100) {
+               throw new ScoreError(`Incorrect score: ` + scoreInput)
+            }
+
+            if (score < 60 && month < 6) {
+               alert(`You still have a chance to manage your scores.`)
+            } else {
+               alert(`You don't stand a chance.`)
+            }
+
+         } catch (e) {
+            if (e instanceof InputError) {
+               alert(e.name + `: ` + e.message)
+            } else {
+               alert(`Unknown error: ` + e)
+            }
+         }
+      }
+
+      main()
+   </script>
+</body>

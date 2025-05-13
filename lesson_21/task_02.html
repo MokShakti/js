@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task_02</title>
+</head>
+
+<body>
+   <script>
+      //Умова: Створити клас Bank, у якому зберігається масив клієнтів. Виконати такі операції: Вивести всіх простих клієнтів; Вивести всіх клієнтів GoldenClient; Знайти сумарну кількість грошей на рахунку.
+
+      class Client {
+         constructor(name, balance) {
+            this.name = name
+            this.balance = balance
+         }
+      }
+
+      class GoldenClient extends Client {
+         constructor(name, balance) {
+            super(name, balance)
+         }
+      }
+
+      class Bank {
+         constructor(threshold) {
+            this.clients = []
+            this.threshold = threshold
+         }
+
+         addClient(nm, bl) {
+            if (nm instanceof Client) {
+               this.clients.push(nm)
+            } else {
+               const [name, balance] = [nm, bl]
+               if (balance > this.threshold) {
+                  this.clients.push(new GoldenClient(name, balance))
+               } else {
+                  this.clients.push(new Client(name, balance))
+               }
+            }
+         }
+
+         printGoldenClients() {
+            console.log(`Golden Clients`)
+            this.clients.forEach(client => {
+               if (client instanceof GoldenClient) {
+                  console.log(`${client.name}: ${client.balance} zl`)
+               }
+            })
+         }
+
+         printSimpleClients() {
+            console.log(`Simple Clients`)
+            this.clients.forEach(client => {
+               if (!(client instanceof GoldenClient)) {
+                  console.log(`${client.name}: ${client.balance} zl`)
+               }
+            })
+         }
+
+         getTotalBalance() {
+            const total = this.clients.reduce((sum, client) => sum + client.balance, 0)
+            console.log(`Total amount on accounts is: ${total} zl`)
+            return total
+         }
+      }
+
+      const bank = new Bank(3000)
+
+      bank.addClient(new Client(`John`, 2500))
+      bank.addClient(new Client(`Dean`, 1500))
+      bank.addClient(new GoldenClient(`Sam`, 5500))
+      bank.addClient(new GoldenClient(`Mary`, 4500))
+
+      bank.printSimpleClients()
+      bank.printGoldenClients()
+      bank.getTotalBalance()
+   </script>
+</body>
