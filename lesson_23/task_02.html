@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Task_02</title>
+   <style>
+      body {
+         font-family: sans-serif;
+         margin: 2rem;
+         background: #fafafa;
+         transition: background 0.3s;
+      }
+
+      #todoApp {
+         max-width: 480px;
+         margin: auto;
+         background: #fff;
+         padding: 1.5rem;
+         border-radius: 8px;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      h2 {
+         margin-top: 0;
+      }
+
+      #todoForm {
+         display: flex;
+         gap: .5rem;
+         margin-bottom: 1rem;
+      }
+
+      #todoForm input {
+         flex: 1;
+         padding: .5rem;
+         font-size: 1rem;
+         border: 1px solid #ddd;
+         border-radius: 4px;
+         outline: none;
+         background: #fff;
+         color: #000;
+      }
+
+      #todoForm button {
+         padding: .5rem 1rem;
+         font-size: 1rem;
+         border: none;
+         background: #28a745;
+         color: #fff;
+         border-radius: 4px;
+         cursor: pointer;
+         transition: background 0.2s;
+      }
+
+      #todoForm button:hover {
+         background: #218838;
+      }
+
+      #taskList {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+      }
+
+      #taskList li {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: .75rem;
+         border-bottom: 1px solid #eee;
+         color: #000;
+      }
+
+      #taskList li:nth-child(odd) {
+         background: #f9f9f9;
+      }
+
+      #taskList .remove-btn {
+         background: none;
+         border: none;
+         font-size: 1.2rem;
+         color: #dc3545;
+         cursor: pointer;
+         line-height: 1;
+         padding: 0;
+      }
+   </style>
+</head>
+
+<body>
+   <input type="color" id="colorPicker">
+   <div id="changeCount">Changes: 0</div>
+   <div id="todoApp">
+      <h2>My Todo List</h2>
+      <form id="todoForm">
+         <input type="text" id="newTask" placeholder="Нова справа…" required>
+         <button type="submit">Add</button>
+      </form>
+      <ul id="taskList"></ul>
+   </div>
+   <script src="scripts/task_02.js"></script>
+</body>
