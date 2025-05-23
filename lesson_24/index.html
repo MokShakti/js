@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Lesson 24</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <div class="wrapper__container">
+         <div class="wrapper__list tasks">
+            <div class="tasks__first">
+               <!-- <div class="tasks__header">
+                  <h2>1. Описати масив об’єктів – сайтів розроблених компанією з такими властивостями <br>
+                     ----- Властивості ------ <br>
+                     назва компанії на час розробки (назву періодично змінюють) <br>
+                     власник компанії <br>
+                     споснсори (масив спонсорів) <br>
+                     * прізвище спонсора <br>
+                     * ім’я спонсора <br>
+                     * сума вкладень спонсора <br>
+                     рік випуску <br>
+                     вартість сайту <br>
+                     Знайти:
+                  </h2>
+               </div> -->
+               <ol class="tasks__list">
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_01.html">
+                        <h3>Задача 1</h3>
+                        <div class="tasks__text">Дано клас PhoneNumber. Створити функцію перетворення до string, при якому на основі номера виводиться оператор (050…. à MTC, 096… à Kyivstar, ….).</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_02.html">
+                        <h3>Задача 2</h3>
+                        <div class="tasks__text">Дано Shop -- клас, що містить список товарів (масив об’єктів класу Product (назва, ціна, кількість одиниць). Додати можливість ітератора до класу Shop, щоб при ітеруванні для кожного елемента виводився рядок «товар-загальна вартість».</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_03.html">
+                        <h3>Задача 3</h3>
+                        <div class="tasks__text">Створити генератор, який би випадковим чином поступово генерував вказану кількість парних чисел.</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_04.html">
+                        <h3>Задача 4</h3>
+                        <div class="tasks__text">Дано список URL адрес. Підрахувати кількість адрес, що відносяться до кожного із доменів (edu, com, org,...).</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_05.html">
+                        <h3>Задача 5</h3>
+                        <div class="tasks__text">Дано масив книг (назва, рік видання, автор, ціна). Підрахувати загальну вартість книг для кожного із авторів.</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_06.html">
+                        <h3>Задача 6</h3>
+                        <div class="tasks__text">Дано інформацію про відвідувачів деякого сайту (для кожного відвідувача зберігається логін). Підрахувати для кожного клієнта кількість відвідувань.</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_07.html">
+                        <h3>Задача 7</h3>
+                        <div class="tasks__text">Дано масив студентів (піб, курс, факультет). Підрахувати кількість різних факультетів, та кількість студентів кожного з курсів.</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_08.html">
+                        <h3>Задача 8</h3>
+                        <div class="tasks__text">Дано масив показів температур. Підрахувати кількість входжень кожного із показів
+                           let temperatures = [12.4, 24.9, 10.6, 12.4, 24.9, 12.4, 10.6, 11.9]
+                           Заокруглити вверх значення та підрахувати кількість різних показів.</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_09.html">
+                        <h3>Задача 9</h3>
+                        <div class="tasks__text">Дано два списки прізвищ студентів, що відвідують гуртки з математики і історії. Підрахувати скільки студентів з гуртка з історії також відвідують гурток з математики. Також підрахувати скільки всього студентів відвідують хоча б один гурток.</div>
+                     </a>
+                  </li>
+               </ol>
+            </div>
+            <!-- <div class="tasks__second">
+               <div class="tasks__header">
+                  <h2>3. Ось приклад відповіді з одного з сайтів (масив об’єктів з інформацією про товари):</h2>
+                  <img src="img/2.1.png" alt="screenshot">
+               </div>
+               <ol class="tasks__list">
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_08.html">
+                        <h3>1.</h3>
+                        <div class="tasks__text">
+                           Загальну вартість (нові ціни - price).
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_09.html">
+                        <h3>2.</h3>
+                        <div class="tasks__text">
+                           Знайти кількість товарів, у яких ціна зменшилась (price < old_price).</div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_10.html">
+                        <h3>3.</h3>
+                        <div class="tasks__text">
+                           Товари, які доступні (sell_status:"available").
+                        </div>
+                     </a>
+                  </li>
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_11.html">
+                        <h3>4.</h3>
+                        <div class="tasks__text">
+                           Cформувати новий список об”єктів тільки доступних для продажу товарів, які міститимуть тільки ідентифікатор товару (id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price).
+                        </div>
+                     </a>
+                  </li>
+               </ol>
+            </div>
+            <div class="tasks__third">
+               <div class="tasks__header">
+                  <h2>2:</h2>
+               </div>
+               <ol class="tasks__list">
+                  <li class="tasks__link">
+                     <a class="tasks__a" href="task_12.html">
+                        <h3>Задача 2</h3>
+                        <div class="tasks__text">
+                           Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+                        </div>
+                     </a>
+                  </li>
+               </ol>
+            </div> -->
+         </div>
+      </div>
+   </div>
+   <script src="js/script.js"></script>
+</body>
+
+</html>
